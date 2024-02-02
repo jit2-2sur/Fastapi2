@@ -1,14 +1,20 @@
+"""
+this file for adding sample data of users and quizzes to database
+"""
+
 from models import *
 from database import Session_local
 
 db = Session_local()
 
+# users data
 users = [
     {"user_id": 1, "name": "Surajit"},
     {"user_id": 2, "name": "Partha"},
     {"user_id": 3, "name": "Raja"},
 ]
 
+# all quizzes data
 quizzes = [
     {
         "title": "Quiz 1",
@@ -138,21 +144,16 @@ quizzes = [
     },
 ]
 
-'''
+"""
+# sample answer data, we'll add those through api call, here for sample
 answer_data = [
     {"answer_id": 1, "answers_list": ["B", "C", "A"]},
     {"answer_id": 2, "answers_list": ["B", "C", "D"]},
-    {"answer_id": 3, "answers_list": ["A", "B", "C"]},
-    {"answer_id": 4, "answers_list": ["B", "A", "C"]},
-    {"answer_id": 5, "answers_list": ["B", "C", "A"]},
-    {"answer_id": 6, "answers_list": ["A", "C", "C"]},
 ]
 
-scorecard_data = {
-    ///
-}
-'''
+"""
 
+# adding those data to database
 for user in users:
     new_user = User(**user)
     db.add(new_user)
