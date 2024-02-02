@@ -12,7 +12,7 @@ class OurBaseModel(BaseModel):
     class Config:
         orm_mode = True
 
-
+# Creates and yields a database session, ensuring it closes even if errors occur.
 def get_db():
     db = Session_local()
     try:
